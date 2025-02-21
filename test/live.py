@@ -9,12 +9,12 @@ import cv2
 
 app = Flask(__name__)
 
-IP_CAMERA_URL = "http://192.168.1.64:4747/video"  #replace with phone's IP given on the app
+IP_CAMERA_URL = "http://10.5.62.165:4747/video"  #replace with phone's IP given on the app
 
 # for video writer
 frame_width = 640
 frame_height = 480
-fps = 20  #can change for higher fps
+fps = 60  #can change for higher fps
 output_file = "output_video.mp4"
 
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')  #mp4v for MP4 files

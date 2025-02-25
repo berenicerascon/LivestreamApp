@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Live Stream</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        iframe {
+            width: 80%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔴 Live Stream</h1>
+    <p>Enjoy the live broadcast!</p>
+
+    <!-- YouTube Live Video Embed -->
+    <iframe id="youtube-live" width="560" height="349" frameborder="0" allowfullscreen></iframe>
+
+<div>
+    <a href="index.html" class="btn">Home Page</a>
+</div>
+
+    <script>
+        async function loadLiveStream() {
+            try {
+                let response = await fetch("../live_url.txt"); // Fetch the file directly
+                let youtube_url = await response.text();
+
+                if (youtube_url) {
+                    document.getElementById("youtube-live").src = youtube_url + "?autoplay=1";
+                    console.log("✅ Updated Live Stream URL:", youtube_url);
+                } else {
+                    console.log("❌ No live stream currently available.");
+                    document.getElementById("youtube-live").innerHTML = "<p>No live stream available.</p>";
+                }
+            } catch (error) {
+                console.error("❌ Error loading live stream:", error);
+            }
+        }
+
+        // Load the live stream when the page loads and check every 30 seconds
+        window.onload = loadLiveStream;
+        setInterval(loadLiveStream, 30000);
+    </script>    
+</body>
+</html>

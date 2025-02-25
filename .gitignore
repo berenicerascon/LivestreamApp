@@ -1,0 +1,20 @@
+# Ignore authentication credentials
+token.json
+client_secrets.json
+live_stream.py-oauth2.json
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore logs and temporary files
+logs/
+*.log
+*.tmp
+
+# Ignore live URL data file (optional, if you don't want to push live_url.txt)
+live_url.txt

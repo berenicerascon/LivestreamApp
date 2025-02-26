@@ -36,19 +36,15 @@
 
                 if (youtube_url) {
                     document.getElementById("youtube-live").src = youtube_url + "?autoplay=1";
-                    console.log("✅ Updated Live Stream URL:", youtube_url);
+                    console.log("Updated Live Stream URL:", youtube_url);
                 } else {
-                    console.log("❌ No live stream currently available.");
+                    console.log("No live stream currently available.");
                     document.getElementById("youtube-live").innerHTML = "<p>No live stream available.</p>";
                 }
             } catch (error) {
-                console.error("❌ Error loading live stream:", error);
+                console.error("Error loading live stream:", error);
             }
         }
-
-        // Load the live stream when the page loads and check every 30 seconds
-        window.onload = loadLiveStream;
-        setInterval(loadLiveStream, 30000);
     </script>    
 </body>
 </html>

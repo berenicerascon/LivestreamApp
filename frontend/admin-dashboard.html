@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livestream Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        .header {
+            background-color: #610028;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #610028;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #800033;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .broadcast-list {
+            margin-top: 20px;
+        }
+        .broadcast-item {
+            background: #eee;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">StampedeStream Dashboard</div>
+    <div class="container">
+        <h2>Create a New Broadcast</h2>
+        <input type="text" id="title" placeholder="Title">
+        <input type="text" id="description" placeholder="Description">
+        <input type="datetime-local" id="datetime">
+        <button onclick="createBroadcast()">Create Broadcast</button>
+        
+        <h2>Upcoming Broadcasts</h2>
+        <div class="broadcast-list" id="broadcastList">
+            <!-- List of broadcasts will be populated here -->
+        </div>
+    </div>
+
+    <script>
+        function createBroadcast() {
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const datetime = document.getElementById('datetime').value;
+            
+            if (!title || !description || !datetime) {
+                alert("Please fill in all fields.");
+                return;
+            }
+            
+            const broadcastList = document.getElementById('broadcastList');
+            const broadcastItem = document.createElement('div');
+            broadcastItem.classList.add('broadcast-item');
+            broadcastItem.innerHTML = `
+                <span>${title} - ${datetime}</span>
+                <button onclick="manageBroadcast('${title}')">Manage</button>
+            `;
+            broadcastList.appendChild(broadcastItem);
+            
+            alert("Broadcast created successfully!");
+        }
+
+        function manageBroadcast(title) {
+            alert(`Redirecting to management page for: ${title}`);
+            // Here we would redirect to a dedicated management page
+        }
+    </script>
+</body>
+</html>

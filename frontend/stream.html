@@ -19,7 +19,6 @@
 </head>
 <body>
     <h1>🔴 Live Stream</h1>
-    <p>Enjoy the live broadcast!</p>
 
     <!-- YouTube Live Video Embed -->
     <iframe id="youtube-live" width="560" height="349" frameborder="0" allowfullscreen></iframe>
@@ -45,6 +44,11 @@
                 console.error("Error loading live stream:", error);
             }
         }
+
+        // Load the live stream when the page loads and check every 30 seconds
+        window.onload = loadLiveStream;
+        // setInterval(loadLiveStream, 30000);
+        
     </script>    
 </body>
 </html>

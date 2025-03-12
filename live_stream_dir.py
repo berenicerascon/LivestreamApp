@@ -68,7 +68,7 @@ def prompt_broadcast_details():
             # Fixing UTC early start if necessary
             min_future_time = now + datetime.timedelta(minutes=1)
             if scheduled_start < min_future_time:
-                print("⚠️ Fixing UTC time ...")
+                print("Fixing UTC time ...")
                 scheduled_start = min_future_time
 
             # Debugging output
@@ -150,9 +150,9 @@ def main():
         print("ERROR: Broadcast creation failed. Exiting...")
         return
     
-    print("\n🎥 **NEXT STEPS**:")
+    print("\n**NEXT STEPS**:")
     print("1) Open Streamlabs and select the scheduled YouTube event.")
-    print("2) Wait for the script to confirm the broadcast is READY.")
+    print("2) Wait for stream start time.")
     print("3) Start streaming in StreamLabs and it should go live in a few seconds!")
 
 if __name__ == "__main__":
